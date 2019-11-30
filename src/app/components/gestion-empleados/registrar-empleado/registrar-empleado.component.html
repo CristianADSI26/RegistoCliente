@@ -1,0 +1,299 @@
+<form [formGroup] = "this.gestionEmpleadoService.formularioRegistroEmpleado" (ngSubmit)="onSubmit()">
+
+     
+
+     
+    <!--Nombre-->
+
+
+
+     <div class="form-group">
+
+         <div class="input-group">
+
+             <div class="input-group-prepend">
+
+                 <div class="input-group-text bg-white">
+
+                     <i class="fa fa-user-circle" [class.blue-icon]="Nombre.valid" [class.red-icon]="Nombre.invalid && Nombre.touched"></i>
+
+                     </div>
+
+                 
+
+                 </div>
+
+             <input type="hidden" name="IdEmpleado">
+
+
+
+             <input name="Nombre" formControlName = "Nombre" class="form-control" placeholder="Nombre del empleado">  
+
+
+
+             </div> 
+
+         
+
+         
+        <!--Mensajes de error-->
+
+         
+
+         <div *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)" class="alert alert-danger">
+              
+
+             
+
+             <div *ngIf="Nombre.hasError('required')">
+
+                 El nombre del empleado es requerido
+
+                 </div> 
+
+             
+
+             <div *ngIf="this.Nombre.hasError('pattern')">
+
+                 El nombre debe contener solo letras
+
+                 </div>
+
+
+
+             </div> 
+
+         
+
+         </div> 
+
+
+
+     
+    <!--Direccion-->
+
+     
+
+     <div class="form-group ">
+
+         <div class="input-group">
+
+             <div class="input-group-prepend">
+
+                 <div class="input-group-text bg-white">
+
+                     <i class="fa fa-home" [class.blue-icon]="Direccion.valid" [class.red-icon]="Direccion.invalid && Direccion.touched"></i>
+
+                     </div>
+
+                 
+
+                 </div>  
+
+
+
+             <input name="Direccion" formControlName = "Direccion" class="form-control" placeholder="Dirección del empleado">  
+
+
+
+             </div> 
+
+         
+
+         
+        <!--Mensajes de error-->
+
+         
+
+         <div *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)" class="alert alert-danger">
+              
+
+             
+
+             <div *ngIf="Direccion.hasError('required')">
+
+                  La dirección del empleado es requerido
+
+                 </div>  
+
+             
+
+             <div *ngIf="this.Direccion.hasError('maxlength')" >
+
+                 La dirección debe tener maximo 60 caracteres
+
+                 </div> 
+
+
+
+             </div> 
+
+         
+
+         </div> 
+
+
+
+     <div class="row">
+
+
+
+         
+        <!--Telefono-->
+
+         
+
+         <div class="form-group col-md-6">
+
+             <div class="input-group">
+
+                 <div class="input-group-prepend">
+
+                     <div class="input-group-text bg-white">
+
+                         <i class="fa fa-phone" [class.blue-icon]="Telefono.valid" [class.red-icon]="Telefono.invalid && Telefono.touched"></i>
+
+                         </div>
+
+                     
+
+                     </div>  
+
+
+
+                 <input name="Telefono" formControlName = "Telefono" class="form-control" placeholder="Teléfono">  
+
+
+
+                 </div> 
+
+
+
+             
+            <!--Mensajes de error-->
+
+             
+
+             
+            <div *ngIf="Telefono.invalid && (Telefono.touched || Telefono.dirty)" class="alert alert-danger">
+                  
+
+                 
+
+                 <div *ngIf="Telefono.hasError('required')">
+
+                      El teléfono del empleado es requerido
+
+                     </div>  
+
+                 
+
+                 <div *ngIf="this.Telefono.hasError('minlength')" >
+
+                     El telefono debe tener minimo 5 caracteres
+
+                     </div> 
+
+
+
+                 <div *ngIf="this.Telefono.hasError('maxlength')" >
+
+                     El telefono debe tener maximo 15 caracteres
+
+                     </div> 
+
+
+
+                 <div *ngIf="this.Telefono.hasError('pattern')">
+
+                     El telefono debe contener solo numeros
+
+                     </div>
+
+                 
+
+                 </div>  
+
+             
+
+             </div>
+        <!--Email-->
+
+         
+
+         <div class="form-group col-md-6">
+
+             <div class="input-group">
+
+                 <div class="input-group-prepend">
+
+                     <div class="input-group-text bg-white">
+
+                         <i class="fa fa-at" [class.blue-icon]="Email.valid" [class.red-icon]="Email.invalid && Email.touched"></i>
+
+                         </div>
+
+                     
+
+                     </div>  
+
+
+
+                 <input name="Email" formControlName = "Email" class="form-control" placeholder="Email">  
+
+
+
+                 </div> 
+
+             
+
+             
+            <!--Mensajes de error-->
+
+             
+
+             <div *ngIf="Email.invalid && (Email.touched || Email.dirty)" class="alert alert-danger">
+                  
+
+                 
+
+                 <div *ngIf="Email.hasError('required')">
+
+                      El corro electrónico empleado es requerido
+
+                     </div> 
+
+                 
+
+                 <div *ngIf="this.Email.hasError('pattern')">
+
+                     El email debe contener un formato correo 
+
+                     </div>
+
+                 
+
+                 </div>  
+
+             
+
+             </div>
+
+
+
+         </div>
+
+     
+
+     
+    <!--Boton de guarda - modificar-->
+
+
+
+     <div class="form-group">
+
+         <button class="btn btn-primary btn-lg btn-block" [disabled]="this.gestionEmpleadoService.formularioRegistroEmpleado.invalid" type="submit"> <i class="fa fa-save"></i> Aceptar</button>
+
+         </div>
+
+</form>
